@@ -1,0 +1,18 @@
+# docker-compose.yml lets you start the whole app with one command:
+#   docker compose up --build
+# instead of remembering long `docker run` flags every time.
+
+services:
+  email-assistant:
+    build: .
+    container_name: ai-email-assistant
+    env_file:
+      - .env   # loads OPENAI_API_KEY etc. into the container's environment
+    volumes:
+      # Mount credentials/token from the host so you don't have to bake
+      # secrets into the image itself (images can end up in a registry).
+      - ./credentials.json:/app/credentials.json:ro
+      - ./token.json:/app/token.json
+      # Persist logs to the host so they survive container restarts.
+      - ./logs:/app/logs
+    restart: unless-stopped

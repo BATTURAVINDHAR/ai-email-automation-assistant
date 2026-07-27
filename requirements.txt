@@ -1,0 +1,14 @@
+# Core AI + Gmail dependencies
+openai==1.51.0                      # Official OpenAI SDK — chat completions
+google-auth==2.35.0                 # Google OAuth2 credential handling
+google-auth-oauthlib==1.2.1         # Interactive OAuth login flow
+google-api-python-client==2.149.0   # Gmail API client
+python-dotenv==1.0.1                # Loads .env files into environment variables
+
+# Testing
+pytest==8.3.3
+pytest-cov==5.0.0                   # Test coverage reporting
+
+# Code quality (used in CI)
+flake8==7.1.1                       # PEP 8 linting
+black==24.8.0                       # Auto-formatter
